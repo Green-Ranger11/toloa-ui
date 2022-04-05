@@ -1,14 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import Header from '../components/partials/Header';
-
 function SignUp() {
   return (
-    <div className="flex flex-col min-h-screen overflow-hidden">
-
-      {/*  Site header */}
-      <Header />
+    <>
 
       {/*  Page content */}
       <main className="flex-grow">
@@ -89,8 +84,7 @@ function SignUp() {
         </section>
 
       </main>
-
-    </div>
+    </>
   );
 }
 
