@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Topics() {
+function Overview() {
   return (
     <>
       Topics
@@ -8,4 +8,4 @@ function Topics() {
   );
 };
 
-export default Topics;
+export default Overview;
