@@ -1,11 +1,11 @@
 import React from 'react';
 
-import TestimonialImage from '../../images/testimonial.jpeg';
-import SPC from '../../images/spc.png';
-import PIF from '../../images/pif.png';
-import EU from '../../images/eu.png';
-import UN from '../../images/un.png';
-import USP from '../../images/usp.png';
+import TestimonialImage from '../images/testimonial.jpeg';
+import SPC from '../images/spc.png';
+import PIF from '../images/pif.png';
+import EU from '../images/eu.png';
+import UN from '../images/un.png';
+import USP from '../images/usp.png';
 
 function Testimonials() {
   return (
