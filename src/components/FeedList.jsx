@@ -1,12 +1,17 @@
 import React from "react";
 import Card from "./Card";
 import FeedPost from "./FeedPost";
+import FeedPosts from "./FeedPosts";
 
 function FeedList() {
   return (
     <>
-      <FeedPost />
-      <p>This is feed list</p>
+      <Card>
+        <FeedPost />
+      </Card>
+      <Card>
+        <FeedPosts />
+      </Card>
     </>
   );
 }
