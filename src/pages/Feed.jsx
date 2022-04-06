@@ -10,7 +10,7 @@ function Feed() {
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
       <Header />
-      <main className="flex-grow mt-[80px] bg-slate-300">
+      <main className="flex-grow mt-[80px]">
         <div className="flex flex-wrap -mb-4 mx-auto container justify-center">
           <div className="w-full sm:w-1/2 md:w-1/5 mb-4 px-2 h-screen bg-transparent">
             <Card>
