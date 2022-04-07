@@ -1,6 +1,7 @@
 import react from "react";
 import { useState } from "react";
 import CardTotal from "./CardTotal";
+import LineGraph from "./LineGraph";
 
 function Sidebar() {
   const [showSidebar, setShowSidebar] = useState(false);
@@ -45,8 +46,12 @@ function Sidebar() {
           </div>
           <div className="flex justify-between">
             <CardTotal title={"Topics"} total={"212"} lastUpdate={"Last topic added 7 hours ago"} icon={"topics.svg"} />
-            <CardTotal title={"Discussions"} total={"3094"} lastUpdate={"Last discussion updated 1 min ago"} icon={"discussions.svg"}/>
-            <CardTotal title={"Contributions"} total={"78"} lastUpdate={"Last contribution added 2 days ago"} icon={"contributions.svg"}/>
+            <CardTotal title={"Discussions"} total={"3094"} lastUpdate={"Last discussion updated 1 min ago"} icon={"discussions.svg"} />
+            <CardTotal title={"Contributions"} total={"78"} lastUpdate={"Last contribution added 2 days ago"} icon={"contributions.svg"} />
+          </div>
+          <div className="flex justify-center bg-slate-200 p-3 mt-8 rounded-md border border-gray-50 mx-3">
+            <LineGraph />
+
           </div>
 
         </div>
