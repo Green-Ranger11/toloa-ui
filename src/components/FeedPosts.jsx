@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
+import Post from "./Post";
 
 function FeedPosts() {
-  const [displayNotice, setDisplayNotice] = useState(false);
-
   return (
     <>
-      <h3>this is notice</h3>
+      <Post />
+      <Post />
+      <Post />
+      <Post />
     </>
   );
 }

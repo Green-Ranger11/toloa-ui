@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "./Card";
-import FeedPost from "./FeedPost";
+import PostInput from "./PostInput";
 import FeedPosts from "./FeedPosts";
 import Notice from "./Notice";
 
@@ -8,11 +8,9 @@ function FeedList() {
   return (
     <>
       <Card>
-        <FeedPost />
+        <PostInput />
       </Card>
-
       <Notice />
-
       <Card>
         <FeedPosts />
       </Card>
