@@ -51,7 +51,7 @@ function LineGraph() {
 
     return (
         <div className="flex flex-col items-center">
-        <h2 className="text-xl my-3 relative text-gray-800">🔥 Most Active Topics 🔥</h2>
+        <h2 className="text-xl my-3 relative text-gray-200 bg-[#000011] p-2 md:p-1 xl:p-2 rounded-md card">🔥 Most Active Topics 🔥</h2>
         <AreaChart
           width={720}
           height={300}
