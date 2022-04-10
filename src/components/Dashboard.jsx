@@ -16,8 +16,8 @@ function Sidebar() {
           x
         </button>
       ) : (
-        <svg xmlns="http://www.w3.org/2000/svg" onClick={() => setShowSidebar(!showSidebar)} className="fixed h-6 w-6 z-30 flex items-center cursor-pointer right-10 top-20" viewBox="0 0 24 24" stroke="#ffffff" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+        <svg xmlns="http://www.w3.org/2000/svg" onClick={() => setShowSidebar(!showSidebar)} className="fixed h-6 w-6 z-30 flex items-center cursor-pointer right-10 top-20" viewBox="0 0 24 24" stroke="#ffffff" strokeWidth="2">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
         </svg>
 
       )}
@@ -30,11 +30,11 @@ function Sidebar() {
         <h3 className="mt-20 ml-3 text-2xl font-semibold text-white">
           Dashboard
         </h3>
-        <div class="flex-col">
-          <div class="flex justify-between py-5 mx-3">
-            <h2 class="text-xs md:text-sm text-gray-700 font-bold tracking-wide md:tracking-wider">
+        <div className="flex-col">
+          <div className="flex justify-between py-5 mx-3">
+            <h2 className="text-xs md:text-sm text-gray-700 font-bold tracking-wide md:tracking-wider">
               Top level totals</h2>
-            <a href="#" class="text-xs text-gray-800 font-semibold uppercase">More</a>
+            <a href="#" className="text-xs text-gray-800 font-semibold uppercase">More</a>
           </div>
           <div className="flex justify-between">
             <CardTotal title={"Topics"} total={"212"} lastUpdate={"Last topic added 7 hours ago"} icon={"topics.svg"} />
