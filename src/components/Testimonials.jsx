@@ -68,7 +68,7 @@ function Testimonials() {
 
           {/* Testimonials */}
           <div className="max-w-3xl mx-auto mt-20" data-aos="zoom-y-out">
-            <div className="relative flex items-start border-2 border-gray-200 rounded bg-white">
+            <div className="relative flex items-start border-2 border-gray-50 rounded shadow-xl bg-white">
 
               {/* Testimonial */}
               <div className="text-center px-12 py-8 pt-20 mx-4 md:mx-0">
