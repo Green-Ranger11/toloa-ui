@@ -1,5 +1,5 @@
 import React from "react";
-import EuLogo from "../../images/eu.png";
+import EuLogo from "../images/eu.png";
 import { AtSymbolIcon, CalendarIcon } from "@heroicons/react/solid";
 
 function Post() {

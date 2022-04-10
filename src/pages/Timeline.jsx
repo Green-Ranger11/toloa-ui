@@ -1,9 +1,9 @@
 import React from "react";
-import Header from "../components/partials/Header";
-import Footer from "../components/partials/Footer";
-import PostTimeline from "../components/partials/PostTimeline";
-import Contribution from "../components/partials/Contribution";
-import Card from "../components/partials/Card";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import PostTimeline from "../components/PostTimeline";
+import Contribution from "../components/Contribution";
+import Card from "../components/Card";
 
 function Timeline() {
   return (
