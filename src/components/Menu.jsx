@@ -19,7 +19,7 @@ function Menu() {
       <ul>
         <li>
           <a
-            href="#"
+            href="/overview"
             className="flex items-center p-2 text-base font-normal text-gray-600 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-200"
           >
             <ChartPieIcon className="w-5 text-gray-400" />
