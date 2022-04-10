@@ -1,7 +1,7 @@
 import React from "react";
-import EuLogo from "../../images/eu.png";
-import SpcLogo from "../../images/spc.png";
-import UnLogo from "../../images/un.png";
+import EuLogo from "../images/eu.png";
+import SpcLogo from "../images/spc.png";
+import UnLogo from "../images/un.png";
 
 function TrendingList() {
   return (

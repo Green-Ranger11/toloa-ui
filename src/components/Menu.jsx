@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "./Card";
-import SamoaFlag from "../../images/samoa-flag.png";
-import TongaFlag from "../../images/tonga-flag.png";
+import SamoaFlag from "../images/samoa-flag.png";
+import TongaFlag from "../images/tonga-flag.png";
 
 import {
   ChartPieIcon,

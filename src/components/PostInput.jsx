@@ -1,5 +1,5 @@
 import React from "react";
-import SendIcon from "../../images/send-icon.png";
+import SendIcon from "../images/send-icon.png";
 import {
   PhotographIcon,
   ExternalLinkIcon,

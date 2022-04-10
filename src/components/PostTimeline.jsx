@@ -4,7 +4,7 @@ import {
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
-import { FlagIcon } from "@heroicons/react/outline";
+import { ArchiveIcon } from "@heroicons/react/outline";
 
 function PostTimeline() {
   return (

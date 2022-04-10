@@ -11,6 +11,8 @@ import SignUp from "./pages/SignUp";
 import ResetPassword from "./pages/ResetPassword";
 import Feed from "./pages/Feed";
 import Timeline from "./pages/Timeline";
+import Header from "./components/Header";
+import Overview from './pages/Overview';
 
 function App() {
   const location = useLocation();
