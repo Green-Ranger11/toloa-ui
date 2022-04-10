@@ -1,0 +1,31 @@
+name: Reactjs app Build and Deploy to Linode
+
+on: push
+
+jobs:
+  build:
+    name: Build App
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull Code
+        uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - name: Install Dependencies
+        run: npm install
+      - name: Build Application
+        run: npm run build
+  deploy:
+    needs: build
+    name: Deploy App
+    steps:
+      - name: Push to Linode
+        run: |
+          echo "$ssh_key" > ~/ssh_key
+          chmod 600 ~/ssh_key
+          rsync -e "ssh -i ~/ssh_key -o StrictHostKeyChecking=no" -avzr ./dist/ "$user"@"$target_ip":/var/toloa/app
+        env:
+          ssh_key: ${{ secrets.CICD_SSH }}
+          user: ${{ secrets.CICD_USER }}
+          target_ip: ${{ secrets.LINODE_IP }}
