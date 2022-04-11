@@ -21,11 +21,18 @@ export const ContributionProvider = ({ children }) => {
   };
 
   // Add a Contribution
-
-  // Edit a contribution
+  const addContribution = async (newContribution) => {
+    newContribution.createdBy = 1;
+    newContribution.topicId = 1;
+    console.log(newContribution);
+    const response = await axios.post(
+      "http://localhost:5000/contribution",
+      newContribution
+    );
+  };
 
   return (
-    <ContributionContext.Provider value={{ contribution }}>
+    <ContributionContext.Provider value={{ contribution, addContribution }}>
       {children}
     </ContributionContext.Provider>
   );
