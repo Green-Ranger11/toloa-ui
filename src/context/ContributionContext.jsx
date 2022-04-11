@@ -16,7 +16,6 @@ export const ContributionProvider = ({ children }) => {
 
     if (response) {
       setContribution(response.data);
-      console.log(response.data);
     }
   };
 
@@ -24,11 +23,13 @@ export const ContributionProvider = ({ children }) => {
   const addContribution = async (newContribution) => {
     newContribution.createdBy = 1;
     newContribution.topicId = 1;
-    console.log(newContribution);
     const response = await axios.post(
       "http://localhost:5000/contribution",
       newContribution
     );
+    if (response) {
+      setContribution((prevContribution) => [...prevContribution, response.data]);
+    }
   };
 
   return (
