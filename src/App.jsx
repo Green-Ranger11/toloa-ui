@@ -34,19 +34,21 @@ function App() {
   }, []); // triggered on route change
 
   return (
-    <div className="flex flex-col min-h-screen overflow-hidden">
-      <Header />
-      <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route path="/signin" element={<SignIn />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/feed" element={<Feed />} />
-        <Route path="/timeline" element={<Timeline />} />
-        <Route path="/reset-password" element={<ResetPassword />} />
-        <Route path='/overview' element={<Overview />} />
-      </Routes>
-      <ToastContainer />
-    </div>
+    <ContributionProvider>
+      <div className="flex flex-col min-h-screen overflow-hidden">
+        <Header />
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/feed" element={<Feed />} />
+          <Route path="/timeline" element={<Timeline />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
+          <Route path='/overview' element={<Overview />} />
+        </Routes>
+        <ToastContainer />
+      </div>
+    </ContributionProvider>
   );
 }
 

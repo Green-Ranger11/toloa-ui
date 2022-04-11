@@ -1,64 +1,37 @@
-import React from "react";
-import {
-  VerticalTimeline,
-  VerticalTimelineElement,
-} from "react-vertical-timeline-component";
-import "react-vertical-timeline-component/style.min.css";
+import React, { useContext } from "react";
+import ContributionContext from "../context/ContributionContext";
 import { ArchiveIcon } from "@heroicons/react/outline";
 
 function PostTimeline() {
+  const { contribution } = useContext(ContributionContext);
+  console.log(contribution);
+
   return (
     <>
-      <VerticalTimeline lineColor={"red"}>
-        <VerticalTimelineElement
-          className="vertical-timeline-element--work"
-          contentStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
-          contentArrowStyle={{ borderRight: "7px solid  rgb(33, 150, 243)" }}
-          date="2011-present"
-          iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
-          icon={<ArchiveIcon />}
-        >
-          <h3 className="text-sm font-semibold">
-            Climate Change for Small Island States
-          </h3>
-          <h4 className="text-sm">Apia, Samoa</h4>
-          <p>
-            Explore the impacts of Climate Change - and how it's affecting small
-            island states in the Pacific
-          </p>
-        </VerticalTimelineElement>
+      <ol className="relative border-l border-gray-200 dark:border-gray-700 w-[80%] mx-auto">
+        {contribution.map((cont) => (
+          <li className="mb-10 ml-6">
+            <span className="flex absolute -left-3 justify-center text-white items-center w-6 h-6 bg-blue-600 rounded-full ring-8 ring-blue-300">
+              <ArchiveIcon />
+            </span>
 
-        <VerticalTimelineElement
-          className="vertical-timeline-element--work"
-          contentStyle={{ background: "red", color: "#fff" }}
-          contentArrowStyle={{ borderRight: "7px solid green" }}
-          date="2011-present"
-          iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
-          icon={<ArchiveIcon />}
-        >
-          <h3 className="text-sm font-semibold">Rise of NCD's</h3>
-          <h4 className="text-sm">Nukualofa, Tonga</h4>
-          <p>
-            Discuss the rise of Non-communicable diseases; and how it correlates
-            to unhealthy eating habits..
-          </p>
-        </VerticalTimelineElement>
+            <h3 className="flex items-center mb-1 text-lg font-semibold text-gray-600 ">
+              {cont.title}
+              <span className="bg-blue-200 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ml-3">
+                Latest
+              </span>
+            </h3>
 
-        <VerticalTimelineElement
-          className="vertical-timeline-element--work"
-          contentStyle={{ background: "red", color: "#fff" }}
-          contentArrowStyle={{ borderRight: "7px solid green" }}
-          date="2011-present"
-          iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
-          icon={<ArchiveIcon />}
-        >
-          <h3 className="text-sm font-semibold">
-            NGO's Annual General Meeting
-          </h3>
-          <h4 className="text-sm">Suva, Fiji</h4>
-          <p>2022 Annual General Meeting Outcomes </p>
-        </VerticalTimelineElement>
-      </VerticalTimeline>
+            <time className="block mb-2 text-sm font-normal leading-none text-gray-500 ">
+              {cont.createdAt}
+            </time>
+
+            <p className="mb-4 text-base font-normal text-gray-400">
+              {cont.content}
+            </p>
+          </li>
+        ))}
+      </ol>
     </>
   );
 }

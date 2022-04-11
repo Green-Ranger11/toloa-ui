@@ -12,42 +12,34 @@ function Contribution() {
       </div>
       <form>
         <div className="mb-4 mx-3">
-          <label
-            className="block text-gray-500 text-sm font-bold mb-2"
-            for="username"
-          >
+          <label className="block text-gray-500 text-sm font-bold mb-2">
             Title
           </label>
           <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline placeholder:text-sm border-gray-400"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none placeholder:text-sm border-gray-300"
             type="text"
             placeholder="Enter title"
           />
         </div>
+
         <div className="mb-4 mx-3">
-          <label
-            className="block text-gray-500 text-sm font-bold mb-2"
-            for="username"
-          >
-            Title
+          <label className="block text-gray-500 text-sm font-bold mb-2">
+            Description
           </label>
           <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline placeholder:text-sm border-gray-400"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none placeholder:text-sm border-gray-300"
             type="text"
-            placeholder="Enter title"
+            placeholder="Enter description"
           />
         </div>
         <div className="mb-4 mx-3">
-          <label
-            className="block text-gray-500 text-sm font-bold mb-2"
-            for="username"
-          >
-            Title
+          <label className="block text-gray-500 text-sm font-bold mb-2">
+            Add Attachements
           </label>
           <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline placeholder:text-sm border-gray-400"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none placeholder:text-sm border-gray-300"
             type="text"
-            placeholder="Enter title"
+            placeholder="Add attachment"
           />
         </div>
 
