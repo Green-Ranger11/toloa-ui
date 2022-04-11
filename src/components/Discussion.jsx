@@ -10,13 +10,15 @@ function Discussion() {
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
-
     setDiscussionInputs((prevValues) => ({ ...prevValues, [name]: value }));
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = () => {
     addDiscussion(discussionInputs);
+    setDiscussionInputs({
+      title: "",
+      content: "",
+    });
   };
 
   return (
@@ -32,7 +34,7 @@ function Discussion() {
         post your discussion.
       </div>
 
-      <form className="mx-4">
+      <form className="mx-4" onSubmit={handleSubmit}>
         <div className="mb-6 ">
           <label className="block text-gray-500 text-sm font-bold mb-2">
             Title
@@ -43,6 +45,7 @@ function Discussion() {
             placeholder="Enter title"
             name="title"
             value={discussionInputs.title}
+            onChange={handleChange}
           />
         </div>
         <div className="mb-6">
@@ -55,6 +58,7 @@ function Discussion() {
             placeholder="Enter more details"
             name="content"
             value={discussionInputs.content}
+            onChange={handleChange}
           ></textarea>
         </div>
 
