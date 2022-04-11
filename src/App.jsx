@@ -16,6 +16,8 @@ import Header from "./components/Header";
 import Overview from './pages/Overview';
 import { ToastContainer } from 'react-toastify';
 
+import { ContributionProvider } from "./context/ContributionContext";
+
 function App() {
 
   useEffect(() => {
@@ -34,6 +36,7 @@ function App() {
   }, []); // triggered on route change
 
   return (
+    <ContributionProvider>
       <div className="flex flex-col min-h-screen overflow-hidden">
         <Header />
         <Routes>
@@ -47,6 +50,7 @@ function App() {
         </Routes>
         <ToastContainer />
       </div>
+    </ContributionProvider>
   );
 }
 
