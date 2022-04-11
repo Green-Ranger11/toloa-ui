@@ -4,7 +4,6 @@ import { ArchiveIcon, BanIcon } from "@heroicons/react/outline";
 
 function PostTimeline() {
   const { contribution } = useContext(ContributionContext);
-  console.log(contribution);
 
   return (
     <>

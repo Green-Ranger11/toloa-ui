@@ -34,7 +34,6 @@ function App() {
   }, []); // triggered on route change
 
   return (
-    <ContributionProvider>
       <div className="flex flex-col min-h-screen overflow-hidden">
         <Header />
         <Routes>
@@ -48,7 +47,6 @@ function App() {
         </Routes>
         <ToastContainer />
       </div>
-    </ContributionProvider>
   );
 }
 
