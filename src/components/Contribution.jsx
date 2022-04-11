@@ -3,8 +3,11 @@ import { LightBulbIcon } from "@heroicons/react/outline";
 import ContributionContext from "../context/ContributionContext";
 
 function Contribution() {
-  const [contributionInputs, setContributionInputs] = useState({});
-
+  const [contributionInputs, setContributionInputs] = useState({
+    title: "",
+    content: "",
+    attachment: "",
+  });
   const { addContribution } = useContext(ContributionContext);
 
   const handleChange = (event) => {
@@ -13,9 +16,13 @@ function Contribution() {
     setContributionInputs((prevValues) => ({ ...prevValues, [name]: value }));
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = () => {
     addContribution(contributionInputs);
+    setContributionInputs({
+      title: "",
+      content: "",
+      attachment: "",
+    });
   };
 
   return (
@@ -71,7 +78,6 @@ function Contribution() {
             onChange={handleChange}
           />
         </div>
-
         <button
           type="submit"
           className="text-[#fff] w-[100%] py-2 mt-3 mb-3 rounded-md bg-indigo-500 hover:bg-indigo-400"
