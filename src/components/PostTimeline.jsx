@@ -21,7 +21,7 @@ function PostTimeline() {
           </h3>
         </li>
         {contribution.map((cont) => (
-          <li className="mb-10 ml-6">
+          <li key={cont.id} className="mb-10 ml-6">
             <span className="flex absolute -left-3 justify-center text-white items-center w-6 h-6 bg-blue-600 rounded-full ring-8 ring-blue-300">
               <ArchiveIcon />
             </span>
