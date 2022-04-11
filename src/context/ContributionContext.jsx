@@ -51,15 +51,18 @@ export const ContributionProvider = ({ children }) => {
   // Add a Discussion
   const addDiscussion = async (newDiscussion) => {
     newDiscussion.topicId = 1;
+    newDiscussion.createdBy = 1;
+    console.log(newDiscussion);
     const response = await axios.post(
       "http://localhost:5000/discussion",
       newDiscussion
     );
+    console.log(response.data);
   };
 
   return (
     <ContributionContext.Provider
-      value={{ topic, addContribution, addDiscussion }}
+      value={{ topic, addContribution, addDiscussion, getTopics }}
     >
       {children}
     </ContributionContext.Provider>
