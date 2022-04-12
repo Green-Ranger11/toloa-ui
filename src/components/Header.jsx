@@ -1,15 +1,27 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Logo from "../images/logo.png";
+import ContributionContext from "../context/ContributionContext";
 
 function Header() {
   const { pathname  } = useLocation();
   const [top, setTop] = useState(true);
   const [isLoggedIn, setIsLoggedIn] = useState(['feed', 'timeline', 'overview'].includes(pathname.slice(1)));
+  const { logout } = React.useContext(ContributionContext);
 
   const checkIsLoggedIn = () => {
     let isAuth = ['feed', 'timeline', 'overview'].includes(pathname.slice(1));
     setIsLoggedIn(isAuth);
+  }
+  
+  const handleClick = () => {
+    if(isLoggedIn){
+      logout();
+      window.location.href = '/';
+      setIsLoggedIn(false);
+    }else{
+      window.location.href = '/signup';
+    }
   }
 
   // detect whether user has scrolled the page down by 10px
@@ -52,8 +64,8 @@ function Header() {
               </li>
               }
               <li>
-                <Link
-                  to={isLoggedIn ? '/' : '/signup'}
+                <button
+                  onClick={handleClick}
                   className="ml-3 text-gray-200 bg-gray-900 btn-sm hover:bg-gray-800"
                 >
                   <span>{isLoggedIn ? 'Sign Out': 'Sign Up'}</span>
@@ -69,7 +81,7 @@ function Header() {
                       />
                     </svg>
                   }
-                </Link>
+                </button>
               </li>
             </ul>
           </nav>

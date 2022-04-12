@@ -3,6 +3,7 @@ import axios from 'axios';
 import baseUrl from "../data/baseUrl";
 import SendIcon from "../images/send-icon.png";
 import { toast } from 'react-toastify';
+import ContributionContext from "../context/ContributionContext";
 
 const initState = {
   title: '',
@@ -12,7 +13,8 @@ const initState = {
 function FeedPost({ addTopic }) {
   const [formData, setFormData] = React.useState(initState);
   const [isSubmitting, setIsSubmitting] = React.useState(false);
-
+  const { getCurrentUserId } = React.useContext(ContributionContext);
+  console.log(getCurrentUserId());
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -29,7 +31,7 @@ function FeedPost({ addTopic }) {
     }
     setIsSubmitting(true);
     try{
-      const response = await axios.post(baseUrl + '/topic', { title, description, createdBy: 1 });
+      const response = await axios.post(baseUrl + '/topic', { title, description, createdBy: getCurrentUserId() });
       if(response.status === 201 || response.status === 200){
         toast.success('Added New Topic');
         addTopic(response.data);

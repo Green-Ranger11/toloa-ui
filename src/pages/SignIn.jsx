@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import baseUrl from '../data/baseUrl';
+import ContributionContext from '../context/ContributionContext';
 
 const initState = {
   username: '',
@@ -11,6 +12,7 @@ const initState = {
 
 function SignIn() {
   const [formData, setFormData] = React.useState(initState);
+  const { login } = React.useContext(ContributionContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,8 +26,10 @@ function SignIn() {
         username,
         password
       });
+      console.log(response);
       if(response.status === 200 || response.status === 201){
         setFormData(initState);
+        login(response.data);
         window.location.href = '/feed?auth=signIn';
       }else{
         throw new Error();
