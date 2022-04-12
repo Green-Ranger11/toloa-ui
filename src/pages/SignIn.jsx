@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import baseUrl from '../data/baseUrl';
 
 const initState = {
   username: '',
@@ -19,7 +20,7 @@ function SignIn() {
       return;
     }
     try{
-      const response = await axios.post('http://localhost:5000/user/auth/login', {
+      const response = await axios.post( baseUrl + '/user/auth/login', {
         username,
         password
       });
