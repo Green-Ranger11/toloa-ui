@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect } from "react";
 import axios from "axios";
+import baseUrl from "../data/baseUrl";
 
 const ContributionContext = createContext(null);
 
@@ -25,7 +26,7 @@ export const ContributionProvider = ({ children }) => {
   // Get all Topics
   const getTopics = async () => {
     const id = 1;
-    const response = await axios.get("http://localhost:5000/topic/1");
+    const response = await axios.get(baseUrl + "/topic/1");
 
     if (response) {
       setTopic(response.data);
@@ -37,7 +38,7 @@ export const ContributionProvider = ({ children }) => {
     newContribution.createdBy = 1;
     newContribution.topicId = 1;
     const response = await axios.post(
-      "http://localhost:5000/contribution",
+      baseUrl + "/contribution",
       newContribution
     );
     if (response) {
@@ -53,11 +54,7 @@ export const ContributionProvider = ({ children }) => {
     newDiscussion.topicId = 1;
     newDiscussion.createdBy = 1;
     console.log(newDiscussion);
-    const response = await axios.post(
-      "http://localhost:5000/discussion",
-      newDiscussion
-    );
-    console.log(response.data);
+    const response = await axios.post(baseUrl + "/discussion", newDiscussion);
   };
 
   return (
