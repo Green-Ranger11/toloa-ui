@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import "./css/style.scss";
 import 'react-toastify/dist/ReactToastify.css';
@@ -17,7 +17,6 @@ import Overview from './pages/Overview';
 import { ToastContainer } from 'react-toastify';
 
 function App() {
-  const location = useLocation();
 
   useEffect(() => {
     AOS.init({
@@ -32,7 +31,7 @@ function App() {
     document.querySelector("html").style.scrollBehavior = "auto";
     window.scroll({ top: 0 });
     document.querySelector("html").style.scrollBehavior = "";
-  }, [location.pathname]); // triggered on route change
+  }, []); // triggered on route change
 
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
