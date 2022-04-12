@@ -71,12 +71,7 @@ function Timeline() {
               <Discussion />
             </Card>
           )}
-          {/* <Card>
-            <Contribution />
-          </Card>
-          <Card>
-            <Discussion />
-          </Card> */}
+
         </div>
       </div>
       <Footer />

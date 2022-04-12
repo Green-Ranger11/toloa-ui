@@ -8,6 +8,7 @@ export const ContributionProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [contribution, setContribution] = useState([]);
   const [topic, setTopic] = useState([{ title: "this is title" }]);
+  const [topicId, setTopicId] = useState(0);
 
   useEffect(() => {
     if (topicId !== 0) {
@@ -81,6 +82,9 @@ export const ContributionProvider = ({ children }) => {
         addDiscussion,
         getTopics,
         setTopicID,
+        login,
+        logout,
+        getCurrentUserId
       }}
     >
       {children}
