@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import ContributionContext from "../context/ContributionContext";
 import { ArchiveIcon, BanIcon, AnnotationIcon } from "@heroicons/react/outline";
 
@@ -7,7 +7,7 @@ function PostTimeline() {
 
   useEffect(() => {
     getTopics();
-  }, [topic]);
+  }, []);
 
   let nodes = [];
 

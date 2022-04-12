@@ -22,18 +22,18 @@ export const ContributionProvider = ({ children }) => {
   };
 
   const getCurrentUserId = () => {
-    if(user) return user?.id;
+    if (user) return user?.id;
     const userId = localStorage.getItem("userId");
-    if(!userId) return 1;
-    return Number(userId)
-  }
+    if (!userId) return 1;
+    return Number(userId);
+  };
 
   const login = (user) => {
-    if(user && user?.id){
+    if (user && user?.id) {
       localStorage.setItem("userId", user.id);
       setUser(user);
     }
-  }
+  };
 
   const logout = () => {
     setUser(null);
@@ -84,7 +84,7 @@ export const ContributionProvider = ({ children }) => {
         setTopicID,
         login,
         logout,
-        getCurrentUserId
+        getCurrentUserId,
       }}
     >
       {children}

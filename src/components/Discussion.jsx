@@ -14,8 +14,7 @@ function Discussion() {
     setDiscussionInputs((prevValues) => ({ ...prevValues, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = () => {
     addDiscussion(discussionInputs);
     setDiscussionInputs({
       title: "",

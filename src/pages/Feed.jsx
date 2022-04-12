@@ -19,7 +19,7 @@ function Feed() {
   }, []);
 
   return (
-    <div className="flex flex-col h-full min-h-full">
+    <div className="flex flex-col h-full min-h-full bg-slate-100">
       <main className="flex-grow mt-[80px] ">
         {/* <div className="container flex flex-wrap justify-center mx-auto mb-10">
           <div className="w-full h-full px-2 mb-4 bg-transparent sm:w-1/2 md:w-1/5">
@@ -43,16 +43,21 @@ function Feed() {
         </div> */}
 
         <div className="w-[90%] max-w-[100%] mx-auto grid grid-cols-12 pt-3 gap-4  ">
+          {/* MENU - LEFT */}
           <div className="rounded border-gray-300 border-2 border-dashed sm:col-span-3 col-span-12">
             <Card>
               <Menu />
             </Card>
           </div>
+
+          {/* Main Feed - Middle */}
           <div className="rounded border-gray-300 border-2 border-dashed sm:col-span-6 col-span-12">
             <Card>
               <FeedList />
             </Card>
           </div>
+
+          {/* Search Bar/Trending list - Right */}
           <div className="rounded border-gray-300 border-2 border-dashed sm:col-span-3 col-span-12">
             <Card>
               <SearchBar />

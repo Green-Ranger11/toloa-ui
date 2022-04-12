@@ -17,9 +17,7 @@ function Contribution() {
     setContributionInputs((prevValues) => ({ ...prevValues, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
+  const handleSubmit = () => {
     addContribution(contributionInputs);
     setContributionInputs({
       title: "",
