@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { LightBulbIcon } from "@heroicons/react/outline";
 import ContributionContext from "../context/ContributionContext";
+import { toast } from "react-toastify";
 
 function Contribution() {
   const [contributionInputs, setContributionInputs] = useState({
@@ -8,7 +9,7 @@ function Contribution() {
     content: "",
     attachment: "",
   });
-  const { addContribution } = useContext(ContributionContext);
+  const { addContribution, getTopics } = useContext(ContributionContext);
 
   const handleChange = (event) => {
     const name = event.target.name;
@@ -16,13 +17,17 @@ function Contribution() {
     setContributionInputs((prevValues) => ({ ...prevValues, [name]: value }));
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
     addContribution(contributionInputs);
     setContributionInputs({
       title: "",
       content: "",
       attachment: "",
     });
+    getTopics();
+    toast.success("Added new Contribution");
   };
 
   return (

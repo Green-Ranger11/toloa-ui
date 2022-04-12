@@ -1,11 +1,12 @@
 import React, { useContext, useState } from "react";
 import { LightBulbIcon } from "@heroicons/react/outline";
 import ContributionContext from "../context/ContributionContext";
+import { toast } from "react-toastify";
 
 function Discussion() {
   const [discussionInputs, setDiscussionInputs] = useState({});
 
-  const { addDiscussion } = useContext(ContributionContext);
+  const { addDiscussion, getTopics } = useContext(ContributionContext);
 
   const handleChange = (event) => {
     const name = event.target.name;
@@ -13,12 +14,15 @@ function Discussion() {
     setDiscussionInputs((prevValues) => ({ ...prevValues, [name]: value }));
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     addDiscussion(discussionInputs);
     setDiscussionInputs({
       title: "",
       content: "",
     });
+    getTopics();
+    toast.success("Added new Discussion");
   };
 
   return (

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import "./css/style.scss";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 
 import AOS from "aos";
 
@@ -13,12 +13,11 @@ import ResetPassword from "./pages/ResetPassword";
 import Feed from "./pages/Feed";
 import Timeline from "./pages/Timeline";
 import Header from "./components/Header";
-import Overview from './pages/Overview';
-import { ToastContainer } from 'react-toastify';
+import Overview from "./pages/Overview";
+import { ToastContainer } from "react-toastify";
 import { ContributionProvider } from "./context/ContributionContext";
 
 function App() {
-
   useEffect(() => {
     AOS.init({
       once: true,
@@ -43,11 +42,10 @@ function App() {
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/feed" element={<Feed />} />
-          <Route path="/timeline" element={<Timeline />} />
+          <Route path="/timeline/:id" element={<Timeline />} />
           <Route path="/reset-password" element={<ResetPassword />} />
-          <Route path='/overview' element={<Overview />} />
         </Routes>
-        <ToastContainer />
+        <ToastContainer autoClose={3000} />
       </div>
     </ContributionProvider>
   );
