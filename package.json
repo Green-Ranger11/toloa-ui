@@ -17,6 +17,7 @@
     "react-flatpickr": "^3.10.7",
     "react-force-graph": "^1.41.12",
     "react-router-dom": "^6.2.1",
+    "react-toastify": "^8.2.0",
     "react-transition-group": "^4.4.1",
     "react-vertical-timeline-component": "^3.5.2",
     "recharts": "^2.1.9",
