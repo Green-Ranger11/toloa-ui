@@ -2,7 +2,8 @@ import React, { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import "./css/style.scss";
-import "react-toastify/dist/ReactToastify.css";
+import 'react-toastify/dist/ReactToastify.css';
+import './components/charts/ChartjsConfig';
 
 import AOS from "aos";
 
@@ -13,8 +14,9 @@ import ResetPassword from "./pages/ResetPassword";
 import Feed from "./pages/Feed";
 import Timeline from "./pages/Timeline";
 import Header from "./components/Header";
-import Overview from "./pages/Overview";
-import { ToastContainer } from "react-toastify";
+import Overview from './pages/Overview';
+import Dashboard from "./pages/Dashboard";
+import { ToastContainer } from 'react-toastify';
 import { ContributionProvider } from "./context/ContributionContext";
 
 function App() {
@@ -44,6 +46,8 @@ function App() {
           <Route path="/feed" element={<Feed />} />
           <Route path="/timeline/:id" element={<Timeline />} />
           <Route path="/reset-password" element={<ResetPassword />} />
+          <Route path='/overview' element={<Overview />} />
+          <Route path='/dashboard' element={<Dashboard />} />
         </Routes>
         <ToastContainer autoClose={3000} />
       </div>
