@@ -10,18 +10,15 @@ export const ContributionProvider = ({ children }) => {
   const [topic, setTopic] = useState([{ title: "this is title" }]);
 
   useEffect(() => {
-    getTopics();
+    if (topicId !== 0) {
+      getTopics();
+    }
   }, []);
 
-  // Get all Contributions
-  // const getContributions = async () => {
-  //   const response = await axios.get("http://localhost:5000/contribution");
-
-  //   if (response) {
-  //     setContribution(response.data);
-  //     console.log(response.data);
-  //   }
-  // };
+  // Set Topic ID
+  const setTopicID = (id) => {
+    setTopicId(() => parseInt(id));
+  };
 
   const getCurrentUserId = () => {
     if(user) return user?.id;
@@ -44,8 +41,7 @@ export const ContributionProvider = ({ children }) => {
 
   // Get all Topics
   const getTopics = async () => {
-    const id = 1;
-    const response = await axios.get(baseUrl + "/topic/1");
+    const response = await axios.get(baseUrl + `/topic/${topicId}`);
 
     if (response) {
       setTopic(response.data);
@@ -78,7 +74,14 @@ export const ContributionProvider = ({ children }) => {
 
   return (
     <ContributionContext.Provider
-      value={{ topic, addContribution, addDiscussion, getTopics, login, logout, getCurrentUserId }}
+      value={{
+        topic,
+        topicId,
+        addContribution,
+        addDiscussion,
+        getTopics,
+        setTopicID,
+      }}
     >
       {children}
     </ContributionContext.Provider>

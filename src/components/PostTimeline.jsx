@@ -1,9 +1,14 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import ContributionContext from "../context/ContributionContext";
 import { ArchiveIcon, BanIcon, AnnotationIcon } from "@heroicons/react/outline";
 
 function PostTimeline() {
-  const { topic } = useContext(ContributionContext);
+  const { topic, getTopics } = useContext(ContributionContext);
+
+  useEffect(() => {
+    getTopics();
+  }, [topic]);
+
   let nodes = [];
 
   if (topic.contributions) {
@@ -13,8 +18,6 @@ function PostTimeline() {
       return new Date(a.createdAt) - new Date(b.createdAt);
     });
   }
-
-  console.log(nodes);
 
   return (
     <>
