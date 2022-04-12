@@ -15,7 +15,6 @@ import Timeline from "./pages/Timeline";
 import Header from "./components/Header";
 import Overview from './pages/Overview';
 import { ToastContainer } from 'react-toastify';
-
 import { ContributionProvider } from "./context/ContributionContext";
 
 function App() {
