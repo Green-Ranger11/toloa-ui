@@ -26,7 +26,7 @@ function SignIn() {
       });
       if(response.status === 200 || response.status === 201){
         setFormData(initState);
-        window.location.href = '/feed?auth=success';
+        window.location.href = '/feed?auth=signIn';
       }else{
         throw new Error();
       }

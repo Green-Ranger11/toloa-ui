@@ -1,7 +1,69 @@
 import React from 'react';
+import axios from 'axios';
+import baseUrl from '../data/baseUrl';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
+
+const initState = {
+  username: '',
+  password: '',
+  firstName: '',
+  lastName: '',
+  organizationId: 0
+}
 
 function SignUp() {
+  const [formData, setFormData] = React.useState(initState);
+  const [organizations, setOrganizations] = React.useState([]);
+
+  const handleChange = (e) => {
+    if(e.target.name === 'organizationId'){
+      setFormData({
+        ...formData,
+        [e.target.name]: Number(e.target.value)
+      });
+    }else{
+      setFormData({
+        ...formData,
+        [e.target.name]: e.target.value
+      });
+    }
+    
+  }
+
+  const handleSubmit = async (e) => {
+    e?.preventDefault();
+    if(!formData.username || !formData.password || !formData.firstName || !formData.lastName || formData.organizationId === 0){
+      toast.error('Please fill in all fields!');
+      return;
+    }
+
+    const response = await axios.post(baseUrl + '/user', formData);
+    if(response.status === 201 || response.status === 200){
+      toast.success('Sign Up Successful');
+      setFormData(initState);
+      window.location.href = '/signin';
+    }else{
+      toast.error('Something went wrong!');
+    }
+  }
+
+  const fetchOrganizations = async () => {
+    try {
+      const response = await axios.get(baseUrl + '/organization');
+      if (response.status === 200) {
+        setOrganizations(response.data);
+        setFormData({...formData, organizationId: response.data[0].id || 0});
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  React.useEffect(() => {
+    fetchOrganizations();
+  }, [])
+
   return (
     <>
 
@@ -22,25 +84,43 @@ function SignUp() {
                 <form>
                   <div className="flex flex-wrap mb-4 -mx-3">
                     <div className="w-full px-3">
-                      <label className="block mb-1 text-sm font-medium text-gray-800" htmlFor="name">Name <span className="text-red-600">*</span></label>
-                      <input id="name" type="text" className="w-full text-gray-800 form-input" placeholder="Enter your name" required />
+                      <label className="block mb-1 text-sm font-medium text-gray-800" htmlFor="firstName">First Name <span className="text-red-600">*</span></label>
+                      <input id="firstName" type="text" name="firstName" value={formData.firstName} onChange={handleChange} className="w-full text-gray-800 form-input" placeholder="Enter your First Name" required />
                     </div>
                   </div>
                   <div className="flex flex-wrap mb-4 -mx-3">
                     <div className="w-full px-3">
-                      <label className="block mb-1 text-sm font-medium text-gray-800" htmlFor="email">Email <span className="text-red-600">*</span></label>
-                      <input id="email" type="email" className="w-full text-gray-800 form-input" placeholder="Enter your email address" required />
+                      <label className="block mb-1 text-sm font-medium text-gray-800" htmlFor="lastName">Last Name <span className="text-red-600">*</span></label>
+                      <input id="lastName" type="text" name="lastName" value={formData.lastName} onChange={handleChange} className="w-full text-gray-800 form-input" placeholder="Enter your Last Name" required />
+                    </div>
+                  </div>
+                  <div className="flex flex-wrap mb-4 -mx-3">
+                    <div className="w-full px-3">
+                      <label className="block mb-1 text-sm font-medium text-gray-800" htmlFor="username">Username <span className="text-red-600">*</span></label>
+                      <input id="username" type="text" name="username" value={formData.username} onChange={handleChange} className="w-full text-gray-800 form-input" placeholder="Enter a Username" required />
                     </div>
                   </div>
                   <div className="flex flex-wrap mb-4 -mx-3">
                     <div className="w-full px-3">
                       <label className="block mb-1 text-sm font-medium text-gray-800" htmlFor="password">Password <span className="text-red-600">*</span></label>
-                      <input id="password" type="password" className="w-full text-gray-800 form-input" placeholder="Enter your password" required />
+                      <input id="password" type="password" name="password" value={formData.password} onChange={handleChange} className="w-full text-gray-800 form-input" placeholder="Enter your password" required />
+                    </div>
+                  </div>
+                  <div className="flex flex-wrap mb-4 -mx-3">
+                    <div className="w-full px-3">
+                      <label className="block mb-1 text-sm font-medium text-gray-800" htmlFor="organization">Organization <span className="text-red-600">*</span></label>
+                      <select id="organization" name="organizationId" value={formData.organizationId} onChange={handleChange} className="w-full text-gray-800 form-select" disabled={organizations?.length < 1} required>
+                        {
+                          organizations.map(organization => (
+                            <option key={organization.id} value={organization.id} >{organization.name}</option>
+                          ))
+                        }
+                      </select>
                     </div>
                   </div>
                   <div className="flex flex-wrap mt-6 -mx-3">
                     <div className="w-full px-3">
-                      <button className="w-full text-white bg-blue-600 btn hover:bg-blue-700">Sign up</button>
+                      <button onClick={handleSubmit} className="w-full text-white bg-blue-600 btn hover:bg-blue-700">Sign up</button>
                     </div>
                   </div>
                   <div className="mt-3 text-sm text-center text-gray-500">
