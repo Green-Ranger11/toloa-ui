@@ -5,8 +5,19 @@ import Menu from "../components/Menu";
 import TrendingList from "../components/TrendingList";
 import FeedList from "../components/FeedList";
 import SearchBar from "../components/SearchBar";
+import { useLocation } from "react-router-dom";
+import { toast } from 'react-toastify';
 
 function Feed() {
+  const { search } = useLocation();
+  
+  React.useEffect(() => {
+     // FAI MEA PEPELO
+    if(search.includes('auth')){  
+      toast.success('You have successfully signed in!');
+    }
+  },[])
+
   return (
     <div className="flex flex-col h-full min-h-full">
       <main className="flex-grow mt-[80px] bg-slate-300">

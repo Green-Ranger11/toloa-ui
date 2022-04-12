@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 
 import "./css/style.scss";
+import 'react-toastify/dist/ReactToastify.css';
 
 import AOS from "aos";
 
@@ -13,6 +14,7 @@ import Feed from "./pages/Feed";
 import Timeline from "./pages/Timeline";
 import Header from "./components/Header";
 import Overview from './pages/Overview';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   const location = useLocation();
@@ -44,6 +46,7 @@ function App() {
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path='/overview' element={<Overview />} />
       </Routes>
+      <ToastContainer />
     </div>
   );
 }
