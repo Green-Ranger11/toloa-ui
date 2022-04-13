@@ -19,7 +19,7 @@ function Feed() {
   }, []);
 
   return (
-    <div className="flex flex-col h-full min-h-full bg-slate-100">
+    <div className="flex flex-col min-w-screen min-h-screen bg-slate-100">
       <main className="flex-grow mt-[80px] ">
         {/* <div className="container flex flex-wrap justify-center mx-auto mb-10">
           <div className="w-full h-full px-2 mb-4 bg-transparent sm:w-1/2 md:w-1/5">
