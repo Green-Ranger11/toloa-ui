@@ -23,16 +23,16 @@ function Menu() {
             className="flex items-center p-2 text-base font-normal text-gray-600 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-200"
           >
             <ChartPieIcon className="w-5 text-gray-400" />
-            <span className="ml-3 text-sm font-medium">Dashboard</span>
+            <span className="ml-3 text-sm font-medium">Overview</span>
           </a>
         </li>
         <li>
           <a
-            href="#"
+            href="dashboard"
             className="flex items-center p-2 text-base font-normal text-gray-600 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-200"
           >
             <InformationCircleIcon className="w-5 text-gray-400" />
-            <span className="ml-3 text-sm font-medium">About</span>
+            <span className="ml-3 text-sm font-medium">Dashboard</span>
           </a>
         </li>
         <li>

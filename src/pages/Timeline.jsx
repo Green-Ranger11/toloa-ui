@@ -22,14 +22,14 @@ function Timeline() {
   return (
     <>
       <div className="w-[80%] max-w-[100%] mx-auto grid sm:grid-cols-12 md-grid-cols-12 pt-6 gap-8 mt-[80px] ">
-        <div className="rounded border-gray-300 border-2 border-dashed sm:col-span-8 col-span-12">
+        <div className="rounded border-gray-300 border-2 sm:col-span-8 col-span-12">
           <HeadingHero
             title="Rise of Non-Communicable Diseases"
             description="Explore the effects of NCDs and how it is directly impacting areas of the Pacific Region. "
           />
           <PostTimeline />
         </div>
-        <div className="rounded border-gray-300 border-2 border-dashed sm:col-span-4 col-span-12">
+        <div className="rounded border-gray-300 border-2 sm:col-span-4 col-span-12">
           <Card>
             <ul className="text-sm font-medium text-center rounded-lg divide-x divide-gray-200 shadow sm:flex">
               <li className="w-full">
