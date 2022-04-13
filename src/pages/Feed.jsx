@@ -19,7 +19,7 @@ function Feed() {
   }, []);
 
   return (
-    <div className="flex flex-col h-full min-h-full bg-slate-100">
+    <div className="flex flex-col min-w-screen min-h-screen bg-slate-100">
       <main className="flex-grow mt-[80px] ">
         <div className="w-[90%] max-w-[100%] mx-auto grid grid-cols-12 pt-3 gap-4  ">
           {/* MENU - LEFT */}
