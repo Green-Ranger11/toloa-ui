@@ -52,7 +52,8 @@ export const ContributionProvider = ({ children }) => {
   // Add a Contribution
   const addContribution = async (newContribution) => {
     newContribution.createdBy = getCurrentUserId();
-    newContribution.topicId = 1;
+    newContribution.topicId = topicId;
+    console.log("User ID: ", newContribution.topicId);
     const response = await axios.post(
       baseUrl + "/contribution",
       newContribution
@@ -67,7 +68,7 @@ export const ContributionProvider = ({ children }) => {
 
   // Add a Discussion
   const addDiscussion = async (newDiscussion) => {
-    newDiscussion.topicId = 1;
+    newDiscussion.topicId = topicId;
     newDiscussion.createdBy = getCurrentUserId();
     console.log(newDiscussion);
     const response = await axios.post(baseUrl + "/discussion", newDiscussion);

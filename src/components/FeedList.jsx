@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import Card from "./Card";
 import FeedPosts from "./FeedPosts";
 import Notice from "./Notice";
@@ -6,9 +6,16 @@ import PostInput from "./PostInput";
 import axios from "axios";
 import { format, parseISO } from "date-fns";
 import baseUrl from "../data/baseUrl";
+import { AdjustmentsIcon } from "@heroicons/react/outline";
+import ContributionContext from "../context/ContributionContext";
 
 function FeedList() {
   const [topics, setTopics] = React.useState([]);
+  const { searchKey } = useContext(ContributionContext);
+
+  useEffect(() => {
+    filterList();
+  }, [searchKey]);
 
   const addTopic = (topic) => {
     setTopics([
@@ -21,6 +28,14 @@ function FeedList() {
       },
       ...topics,
     ]);
+  };
+
+  const filterList = () => {
+    const filteredTopics = topics.filter((x) =>
+      x.title.toLowerCase().includes(searchKey.toLowerCase())
+    );
+
+    setTopics(filteredTopics);
   };
 
   React.useEffect(() => {
@@ -43,15 +58,12 @@ function FeedList() {
 
   return (
     <>
-      <PostInput addTopic={addTopic} />
+      <Card>
+        <PostInput addTopic={addTopic} />
+      </Card>
 
       <Notice />
-      <Card>
-        <h2 className="pl-4 text-3xl font-bold text-left text-gray-600">
-          #Topics
-        </h2>
-        <hr className="h-[2px] bg-slate-200 rounded-md w-[95%] mx-auto mt-1 mb-2" />{" "}
-      </Card>
+
       <Card>
         <FeedPosts topics={topics} />
       </Card>

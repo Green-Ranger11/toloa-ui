@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { SpeakerphoneIcon } from "@heroicons/react/solid";
 import { XIcon } from "@heroicons/react/outline";
+import { Link } from "react-router-dom";
 
 function Notice() {
   const [showNotice, setShowNotice] = useState(true);
@@ -16,19 +17,20 @@ function Notice() {
           <div className="max-w-7xl mx-auto py-3 px-0 sm:px-3 lg:px-2">
             <div className="flex items-center justify-between flex-wrap">
               <div className="w-0 flex-1 flex items-center">
-                <span className="flex items-center">
-                  <SpeakerphoneIcon className="h-5 w-5 text-white " />
+                <span className="flex items-center overflow-auto  ">
+                  <SpeakerphoneIcon className="h-5 w-5 text-white hidden sm:block" />
+
                   <p className="ml-3 font-medium text-white truncate">
-                    <span className="text-sm text-gray-100">
-                      Click here to see an overview of discussions and
-                      contributions
-                    </span>
+                    <Link to="/dashboard">
+                      Click here to see a Collaboration Graph - Overview
+                    </Link>
                   </p>
                 </span>
               </div>
+
               <div>
                 <XIcon
-                  className="h-6 w-6 text-white"
+                  className="h-6 w-6 text-white hidden sm:block"
                   onClick={handleNoticeClick}
                 />
               </div>
